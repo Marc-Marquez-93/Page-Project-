@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle Life | Environmental Awareness</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>♻️ Recycle Life</h1>
+        <nav>
+            <ul>
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#contact">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=1600');">
+        <h2>Preserve our Future</h2>
+        <p>Every small action counts. Learn how to make a difference in your community today.</p>
+        <a href="#solutions" class="cta-btn">Start the Change</a>
+    </div>
+
+    <main>
+        <section id="problem">
+            <h2>The Environmental Challenge</h2>
+            <article>
+                <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&q=80&w=800" alt="Environmental pollution in a water body">
+                <div class="content">
+                    <p>The problem of environmental concerns and recycling is deeply rooted in how our communities interact with the environment. In many areas, responsibility for sustaining our surroundings is ignored, leading to mismanaged resources and negative impacts on everyone. [cite: 20]</p>
+                    <p>Improper waste management isn't just an aesthetic issue—it's a systemic failure that affects our health, wildlife, and future generations. Soil degradation and water pollution are direct consequences of our current consumption patterns. [cite: 21]</p>
+                </div>
+            </article>
+        </section>
+
+        <section id="solutions">
+            <h2>Proposed Solutions</h2>
+            <div class="solutions-container">
+                <article class="solution-card">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400" alt="Student learning about environment">
+                    <h3>Educational Campaigns</h3>
+                    <p>Knowledge is the first step. Proper recycling education through local classes and digital content can transform community habits from the ground up. [cite: 35]</p>
+                </article>
+
+                <article class="solution-card">
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=400" alt="Colorful recycling bins">
+                    <h3>Adequate Labeling</h3>
+                    <p>Clear, noticeable labeling for plastic, paper, and organic waste makes the recycling process intuitive and effective in public spaces. [cite: 36, 37]</p>
+                </article>
+
+                <article class="solution-card">
+                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=400" alt="Social media icons on screen">
+                    <h3>Social Media Impact</h3>
+                    <p>We leverage short-form videos and high-impact infographics to spread environmental awareness and reach a global audience instantly. [cite: 38]</p>
+                </article>
+
+                <article class="solution-card">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd99c59633fa?auto=format&fit=crop&q=80&w=400" alt="Community volunteers">
+                    <h3>Community Rewards</h3>
+                    <p>Incentivizing change works. We recognize and reward community groups that demonstrate excellence in sustainable waste management. [cite: 39]</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="creators">
+            <h2>Project Creators</h2>
+            <div class="creators-container">
+                <div class="creator-card">Jefferson Rojas</div>
+                <div class="creator-card">Nathalia Jaimes</div>
+                <div class="creator-card">Jose Luis Vargas</div>
+                <div class="creator-card">Jesus Acero</div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get Involved</h2>
+            <p>Ready to make a real change? Subscribe to our newsletter for weekly recycling tips, community events, and local initiatives.</p>
+            <form>
+                <label for="email" style="font-weight: bold; margin-bottom: 0.5rem; display: block;">Join our newsletter:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                <button type="submit" class="cta-btn" style="border:none; cursor:pointer;">Join the Movement</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Recycle Life Initiative - Environmental Awareness Project - SENA ADSO</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">Designed with 💚 for a sustainable future</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Reveal on Scroll Animation
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        const revealItems = document.querySelectorAll('section, .solution-card');
+        revealItems.forEach(item => {
+            item.classList.add('reveal');
+            observer.observe(item);
+        });
+
+        // 2. Interactive Form Handling
+        const contactForm = document.querySelector('#contact form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = contactForm.querySelector('input[type="email"]').value;
+                
+                const successMsg = document.createElement('div');
+                successMsg.className = 'success-message';
+                successMsg.innerHTML = `
+                    <div class="msg-content">
+                        <h3>Thank you! 🌿</h3>
+                        <p>We've sent a confirmation to <strong>${email}</strong>. Welcome to the movement!</p>
+                        <button class="close-btn">Close</button>
+                    </div>
+                `;
+                
+                document.body.appendChild(successMsg);
+                contactForm.reset();
+
+                successMsg.querySelector('.close-btn').addEventListener('click', () => {
+                    successMsg.classList.add('fade-out');
+                    setTimeout(() => successMsg.remove(), 500);
+                });
+            });
+        }
+
+        // 3. Dynamic Navbar Background on Scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 4. Subtle Parallax for Hero
+        const hero = document.querySelector('.hero');
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            hero.style.backgroundPositionY = -(scroll * 0.5) + 'px';
+        });
+    });
+    </script>
+</body>
+</html>
