@@ -21,7 +21,7 @@
 
     <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=1600');">
         <h2>Preserve our Future</h2>
-        <p>hello</p>
+        <p>Small actions today lead to a sustainable world tomorrow. Join our mission to transform waste into resources.</p>
         <a href="#solutions" class="cta-btn">Start the Change</a>
     </div>
 
@@ -31,8 +31,8 @@
             <article>
                 <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&q=80&w=800" alt="Environmental pollution in a water body">
                 <div class="content">
-                    <p>hello</p>
-                    <p>hi</p>
+                    <p>Our planet is facing an unprecedented waste crisis. Every year, millions of tons of plastic end up in our oceans, affecting marine life and human health.</p>
+                    <p>The lack of proper waste management and recycling habits has led to the depletion of natural resources and increased carbon emissions. It is time to rethink how we consume and dispose of materials.</p>
                 </div>
             </article>
         </section>
@@ -43,25 +43,25 @@
                 <article class="solution-card">
                     <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=400" alt="Student learning about environment">
                     <h3>Educational Campaigns</h3>
-                    <p>hello</p>
+                    <p>Empowering schools and local communities with the knowledge needed to separate waste correctly and understand the life cycle of products.</p>
                 </article>
 
                 <article class="solution-card">
                     <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=400" alt="Colorful recycling bins">
                     <h3>Adequate Labeling</h3>
-                    <p>hello</p>
+                    <p>Implementing clear, color-coded identification systems for bins to minimize cross-contamination and make recycling intuitive for everyone.</p>
                 </article>
 
                 <article class="solution-card">
                     <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=400" alt="Social media icons on screen">
                     <h3>Social Media Impact</h3>
-                    <p>hello</p>
+                    <p>Using digital platforms to spread eco-friendly tips, viral challenges, and success stories to inspire a global movement of sustainability.</p>
                 </article>
 
                 <article class="solution-card">
-                    <img src="https://images.unsplash.com/photo-1559027615-cd99c59633fa?auto=format&fit=crop&q=80&w=400" alt="Community volunteers">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmm6WdFrhJav_3Twjt0FiOd6UH01HZNZ9zBQ&s">
                     <h3>Community Rewards</h3>
-                    <p>hello</p>
+                    <p>Encouraging green habits through incentive programs where citizens can earn benefits for their active participation in recycling initiatives.</p>
                 </article>
             </div>
         </section>
@@ -78,7 +78,7 @@
 
         <section id="contact">
             <h2>Get Involved</h2>
-            <p> hello</p>
+            <p>Ready to make a difference? Subscribe to stay updated on local cleanup events, recycling workshops, and tips for a zero-waste lifestyle.</p>
             <form>
                 <label for="email" style="font-weight: bold; margin-bottom: 0.5rem; display: block;">Join our newsletter:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email address" required>
@@ -127,15 +127,29 @@
                     <div class="msg-content">
                         <h3>Thank you! 🌿</h3>
                         <p>We've sent a confirmation to <strong>${email}</strong>. Welcome to the movement!</p>
-                        <button class="close-btn">Close</button>
+                        <button class="close-btn" style="padding: 8px 16px; margin-top: 10px; cursor: pointer;">Close</button>
                     </div>
                 `;
                 
+                // Estilos básicos para el mensaje de éxito (puedes moverlos a styles.css)
+                Object.assign(successMsg.style, {
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    backgroundColor: 'white',
+                    padding: '2rem',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+                    zIndex: '1000',
+                    borderRadius: '8px',
+                    textAlign: 'center'
+                });
+
                 document.body.appendChild(successMsg);
                 contactForm.reset();
 
                 successMsg.querySelector('.close-btn').addEventListener('click', () => {
-                    successMsg.classList.add('fade-out');
+                    successMsg.style.opacity = '0';
                     setTimeout(() => successMsg.remove(), 500);
                 });
             });
